@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriAthlete AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color:white;
+}
+
+header{
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00ffae;
+}
+
+.hero{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    padding:50px;
+    border-radius:20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    max-width:700px;
+}
+
+.hero h1{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:30px;
+    color:#d1d5db;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#00ffae;
+    color:#0f2027;
+    font-weight:bold;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:white;
+}
+
+.features{
+    padding:80px 50px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding:30px;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.15);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#00ffae;
+}
+
+.card p{
+    color:#e5e7eb;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.3);
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">NutriAthlete AI</div>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Funcionalidades</a>
+        <a href="#">Planos</a>
+        <a href="#">Contato</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>ERP Inteligente para Dieta de Atletas</h1>
+        <p>Plataforma completa com Inteligência Artificial para gerar dietas personalizadas, acompanhar evolução corporal e otimizar sua performance esportiva.</p>
+        <a href="#" class="btn">Começar Agora</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="card">
+        <h3>🤖 Dieta com IA</h3>
+        <p>Geração automática de planos alimentares com base no peso, altura e objetivo do atleta.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 Relatórios de Evolução</h3>
+        <p>Acompanhe gráficos de peso, IMC e desempenho ao longo do tempo.</p>
+    </div>
+
+    <div class="card">
+        <h3>👤 Gestão de Atletas</h3>
+        <p>Cadastro completo com histórico alimentar e acompanhamento individual.</p>
+    </div>
+
+    <div class="card">
+        <h3>💳 Gestão Financeira</h3>
+        <p>Controle de assinaturas, planos e pagamentos dentro do ERP.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 NutriAthlete AI | Desenvolvido por Jessica Pereira
+</footer>
+
+</body>
+</html>
