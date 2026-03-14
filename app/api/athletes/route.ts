@@ -3,6 +3,8 @@ import { db } from '@/lib/db'
 import { athletes, organizations } from '@/lib/db/schema'
 import { eq, and } from 'drizzle-orm'
 import jwt from 'jsonwebtoken'
+import { checkAthleteLimit } from '@/lib/subscription'
+import { apiLimiter } from '@/lib/rate-limit'
 
 const JWT_SECRET = process.env.NEXTAUTH_SECRET!
 
@@ -62,6 +64,14 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting
+    if (!apiLimiter.check()) {
+      return NextResponse.json(
+        { message: 'Limite de requisições excedido' },
+        { status: 429 }
+      )
+    }
+
     const user = extractUserFromRequest(request)
     if (!user) {
       return NextResponse.json({ message: 'Não autorizado' }, { status: 401 })
@@ -74,6 +84,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { message: 'Nome e organizationId são obrigatórios' },
         { status: 400 }
+      )
+    }
+
+    // Check subscription limit
+    const limitCheck = await checkAthleteLimit(organizationId)
+    if (!limitCheck.canCreate) {
+      return NextResponse.json(
+        {
+          message: `Limite de atletas atingido (${limitCheck.current}/${limitCheck.limit}). Faça upgrade do plano.`,
+          tier: limitCheck.tier,
+          current: limitCheck.current,
+          limit: limitCheck.limit,
+        },
+        { status: 403 }
       )
     }
 
